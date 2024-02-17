@@ -10,7 +10,7 @@ export function app({el}) {
 
   const encrypt = (url) => {
     if (Object.values(aliasIndex).includes(url)) {
-      return `${base}/?${Object.keys(aliasIndex).find((key) => aliasIndex[key] === url)}`
+      return `${base}/${Object.keys(aliasIndex).find((key) => aliasIndex[key] === url)}`
     }
 
     const shorter = url
@@ -31,7 +31,6 @@ export function app({el}) {
       .replace(/login/g, '~3~')
       .replace(/https:\/\//g, '~2~')
       .replace(/http:\/\//g, '~1~')
-      .replace(/\//g, '~0~')
   
     return `${base}/?${shorter}`
   }
@@ -59,13 +58,12 @@ export function app({el}) {
       .replace(/~3~/g, 'login')
       .replace(/~2~/g, 'https://')
       .replace(/~1~/g, 'http://')
-      .replace(/~0~/g, '/')
   }
 
   const [result, setResult] = el.useState('')
 
   el.useEffect(() => {
-    const url = window.location.search.slice(1)
+    const url = window.location.href.replace('https://eanorambuena.github.io/short/', '')
     if (url === '') return
     console.log(decrypt(url))
     window.location.replace(decrypt(url))
