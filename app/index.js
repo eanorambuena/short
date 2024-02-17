@@ -18,6 +18,11 @@ export function app({el}) {
       .replace(/https:\/\/uccl0.sharepoint.com\//g, '~mss~')
       .replace(/https:\/\/www.notion.so\//g, '~notion~')
       .replace(/https:\/\/www.npmjs.com\/package\//g, '~npm~')
+      .replace(/https:\/\/github.com\//g, '~gh~')
+      .replace(/.pages.dev/g, '~cf~')
+      .replace(/.github.io/g, '~ghp~')
+      .replace(/.vercel.app/g, '~vc~')
+      .replace(/.netlify.app/g, '~nl~')
       .replace(/https:\/\//g, '~0')
       .replace(/http:\/\//g, '~1')
       .replace(/www./g, '~2')
@@ -26,10 +31,6 @@ export function app({el}) {
       .replace(/ing/g, '~5')
       .replace(/login/g, '~6')
       .replace(/\//g, '~7')
-      .replace(/.pages.dev/g, '~cf~')
-      .replace(/.github.io/g, '~gh~')
-      .replace(/.vercel.app/g, '~vc~')
-      .replace(/.netlify.app/g, '~nl~')
   
     return `${base}/?${shorter}`
   }
@@ -44,6 +45,11 @@ export function app({el}) {
       .replace(/~mss~/g, 'https://uccl0.sharepoint.com/')
       .replace(/~notion~/g, 'https://www.notion.so/')
       .replace(/~npm~/g, 'https://www.npmjs.com/package/')
+      .replace(/~gh~/g, 'https://github.com/')
+      .replace(/~cf~/g, '.pages.dev')
+      .replace(/~ghp~/g, '.github.io')
+      .replace(/~vc~/g, '.vercel.app')
+      .replace(/~nl~/g, '.netlify.app')
       .replace(/~0/g, 'https://')
       .replace(/~1/g, 'http://')
       .replace(/~2/g, 'www.')
@@ -52,10 +58,6 @@ export function app({el}) {
       .replace(/~5/g, 'ing')
       .replace(/~6/g, 'login')
       .replace(/~7/g, '/')
-      .replace(/~cf~/g, '.pages.dev')
-      .replace(/~gh~/g, '.github.io')
-      .replace(/~vc~/g, '.vercel.app')
-      .replace(/~nl~/g, '.netlify.app')
   }
 
   const [result, setResult] = el.useState('')
