@@ -32,7 +32,7 @@ export function app({el}) {
       .replace(/https:\/\//g, '~2~')
       .replace(/http:\/\//g, '~1~')
   
-    return `${base}/?${shorter}`
+    return `${base}/${shorter}`
   }
 
   const decrypt = (url) => {
