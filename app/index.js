@@ -25,6 +25,10 @@ export function app({el}) {
       .replace(/ing/g, '~5')
       .replace(/login/g, '~6')
       .replace(/\//g, '~7')
+      .replace(/.pages.dev/g, '~cf~')
+      .replace(/.github.io/g, '~gh~')
+      .replace(/.vercel.app/g, '~vc~')
+      .replace(/.netlify.app/g, '~nl~')
   
     return `${base}/?${shorter}`
   }
@@ -33,7 +37,7 @@ export function app({el}) {
     if (Object.keys(aliasIndex).includes(url)) {
       return aliasIndex[url]
     }
-    
+
     return url
       .replace(/~01~/g, 'https://outlook.office365.com/mail/inbox/id/')
       .replace(/~02~/g, 'https://uccl0.sharepoint.com/')
@@ -46,6 +50,10 @@ export function app({el}) {
       .replace(/~5/g, 'ing')
       .replace(/~6/g, 'login')
       .replace(/~7/g, '/')
+      .replace(/~cf~/g, '.pages.dev')
+      .replace(/~gh~/g, '.github.io')
+      .replace(/~vc~/g, '.vercel.app')
+      .replace(/~nl~/g, '.netlify.app')
   }
 
   const [result, setResult] = el.useState('')
