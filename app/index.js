@@ -4,9 +4,16 @@ export function app({el}) {
   el.className = 'flex flex-col justify-center items-center space-y-3 text-center w-full h-full text-white'
 
   const base = 'eanorambuena.github.io/short'
+  const aliasIndex ={
+    'emmy-dom': 'https://www.npmjs.com/package/emmy-dom'
+  }
 
   const encrypt = (url) => {
-    return `${base}/?${url
+    if (Object.values(aliasIndex).includes(url)) {
+      return `${base}/?${Object.keys(aliasIndex).find((key) => aliasIndex[key] === url)}`
+    }
+
+    const shorter = url
       .replace(/https:\/\/outlook.office365.com\/mail\/inbox\/id\//g, '~01~')
       .replace(/https:\/\/uccl0.sharepoint.com\//g, '~02~')
       .replace(/https:\/\/www.notion.so\//g, '~03~')
@@ -18,10 +25,15 @@ export function app({el}) {
       .replace(/ing/g, '~5')
       .replace(/login/g, '~6')
       .replace(/\//g, '~7')
-    }`
+  
+    return `${base}/?${shorter}`
   }
 
   const decrypt = (url) => {
+    if (Object.keys(aliasIndex).includes(url)) {
+      return aliasIndex[url]
+    }
+    
     return url
       .replace(/~01~/g, 'https://outlook.office365.com/mail/inbox/id/')
       .replace(/~02~/g, 'https://uccl0.sharepoint.com/')
