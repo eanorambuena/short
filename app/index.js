@@ -63,7 +63,7 @@ export function app({el}) {
   const [result, setResult] = el.useState('')
 
   el.useEffect(() => {
-    const url = window.location.href.search.slice(1)
+    const url = window.location.search.slice(1)
     if (url === '') return
     console.log(decrypt(url))
     window.location.replace(decrypt(url))
