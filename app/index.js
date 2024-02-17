@@ -14,6 +14,7 @@ export function app({el}) {
     }
 
     const shorter = url
+      .replace(/https:\/\/github.com\/eanorambuena\//g, '~h~')
       .replace(/https:\/\/outlook.office365.com\/mail\/inbox\/id\//g, '~g~')
       .replace(/https:\/\/uccl0.sharepoint.com\//g, '~f~')
       .replace(/https:\/\/www.notion.so\//g, '~e~')
@@ -41,6 +42,7 @@ export function app({el}) {
     }
 
     return url
+      .replace(/~h~/g, 'https://github.com/eanorambuena/')
       .replace(/~g~/g, 'https://outlook.office365.com/mail/inbox/id/')
       .replace(/~f~/g, 'https://uccl0.sharepoint.com/')
       .replace(/~e~/g, 'https://www.notion.so/')
