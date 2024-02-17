@@ -14,10 +14,10 @@ export function app({el}) {
     }
 
     const shorter = url
-      .replace(/https:\/\/outlook.office365.com\/mail\/inbox\/id\//g, '~01~')
-      .replace(/https:\/\/uccl0.sharepoint.com\//g, '~02~')
-      .replace(/https:\/\/www.notion.so\//g, '~03~')
-      .replace(/https:\/\/www.npmjs.com\/package\//g, '~04~')
+      .replace(/https:\/\/outlook.office365.com\/mail\/inbox\/id\//g, '~mso~')
+      .replace(/https:\/\/uccl0.sharepoint.com\//g, '~mss~')
+      .replace(/https:\/\/www.notion.so\//g, '~notion~')
+      .replace(/https:\/\/www.npmjs.com\/package\//g, '~npm~')
       .replace(/https:\/\//g, '~0')
       .replace(/http:\/\//g, '~1')
       .replace(/www./g, '~2')
@@ -40,10 +40,10 @@ export function app({el}) {
     }
 
     return url
-      .replace(/~01~/g, 'https://outlook.office365.com/mail/inbox/id/')
-      .replace(/~02~/g, 'https://uccl0.sharepoint.com/')
-      .replace(/~03~/g, 'https://www.notion.so/')
-      .replace(/~04~/g, 'https://www.npmjs.com/package/')
+      .replace(/~mso~/g, 'https://outlook.office365.com/mail/inbox/id/')
+      .replace(/~mss~/g, 'https://uccl0.sharepoint.com/')
+      .replace(/~notion~/g, 'https://www.notion.so/')
+      .replace(/~npm~/g, 'https://www.npmjs.com/package/')
       .replace(/~0/g, 'https://')
       .replace(/~1/g, 'http://')
       .replace(/~2/g, 'www.')
